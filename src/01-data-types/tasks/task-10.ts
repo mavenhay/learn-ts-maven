@@ -16,3 +16,10 @@
  * 2. Store the product data in a single collection.
  * 3. Display the product data using console.log.
  */
+
+type Product = {id:string, name:string, price:number, quantity:number, freeShipping:boolean};
+
+const products:Product[] = []
+
+let test = 0;
+test += (true)?30000:1000;

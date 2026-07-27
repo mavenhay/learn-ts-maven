@@ -26,6 +26,5 @@ const products:Product[] = [
     {id:20,name:"Laptop Gaming",price:30000000,stocks:10,avgRating:4.7,weight:1200},
 ];
 
-products.forEach( ()=> {
-    
-});
+console.info("Product Datas")
+console.log(products);
