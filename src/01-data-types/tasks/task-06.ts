@@ -9,3 +9,23 @@
  * 
  * display the product data using console.log.
  */
+
+type Product = {
+    id:number,
+    name:string,
+    price:number,
+    stocks:number,
+    avgRating:number,
+    weight:number,
+    discount?:number
+}
+
+const products:Product[] = [
+    {id:14,name:"Phone",price:2000000,stocks:30,avgRating:4.5,weight:500},
+    {id:67,name:"IJaZAH JKw",price:999999999999,stocks:1,avgRating:1.67,weight:2},
+    {id:20,name:"Laptop Gaming",price:30000000,stocks:10,avgRating:4.7,weight:1200},
+];
+
+products.forEach( ()=> {
+    
+});

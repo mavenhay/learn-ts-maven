@@ -14,3 +14,40 @@
  * 3. Create the variable declarations using TypeScript.
  * 4. Display the student data using console.log.
  */
+
+const name:string = "Nadia Putri";
+const studentID:string = "ST2026045";
+const isParticipatingExtracurricular:boolean = true;
+const midtermExamScore:number = 84;
+const finalExamScore:number = 91.5;
+const assignmentsScore:number = 88.5;
+const attendanceScore:number = 100;
+let grade:string;
+
+if (isParticipatingExtracurricular) {
+    console.log("YES ikut ekskul\n");
+} else {
+    console.log("NO ikut ekskul\n");
+}
+let finalScore = (midtermExamScore+finalExamScore+assignmentsScore+attendanceScore)/4
+console.log("============",name+"'s Data ============");
+console.log("Student Name:",name);
+console.log("Student ID:",studentID);
+console.log("Midterm Exam Score:",midtermExamScore);
+console.log("Final Exam Score:",finalExamScore);
+console.log("AssignmentsScore:",assignmentsScore);
+console.log("Attendance Score:", attendanceScore);
+console.log("Is Participating Extracurricular:",(isParticipatingExtracurricular)?"Ikut Ekskul":"Tidak Ikut Ekskul");
+console.log("Final Score",finalScore+"\n")
+
+if (finalScore>=90) {
+    grade = "A";
+} else if (finalScore>=80){
+    grade = "B";
+} else if (finalScore>=75) {
+    grade = "C";
+} else {
+    grade = "D";
+}
+
+console.log("Grade:",grade);

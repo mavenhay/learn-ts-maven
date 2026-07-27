@@ -10,3 +10,42 @@
  * 
  * display the book data using console.log.
  */
+enum Category {
+    CScience = "Computer Science",
+    Math = "Mathematics",
+    Novel = "Novel"
+}
+
+type Book = {isbn:number, title:string, author:string, pages:number, category:Category, available:boolean};
+
+const book1:Book = {
+    isbn:1,
+    title:"Learn AI",
+    author:"Maven",
+    pages:136,
+    category:Category.CScience,
+    available:true
+}
+
+const book2:Book = {
+    isbn:2,
+    title:"Advanced Mathematics",
+    author:"Maven",
+    pages:239,
+    category:Category.Math,
+    available:true
+}
+
+const book3:Book = {
+    isbn:3,
+    title:"Learn TypeScript",
+    author:"Maven",
+    pages:127,
+    category:Category.CScience,
+    available:false
+}
+
+console.info("======= Book Infos =======");
+console.info(book1);
+console.info(book2);
+console.info(book3);

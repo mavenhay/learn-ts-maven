@@ -13,4 +13,55 @@
  * 3. Determine the correct data type.
  * 4. Declare all variables in TypeScript.
  * 5. Display the product data using console.log.
- */
+**/
+type Product = {name:string, id:string, price:number, quantity:number, discount:number, freeShipping:boolean};
+enum Member {
+    Premium = "Premium",
+    Regular = "Regular",
+    None = "No Member"
+}
+type Customer = {name:string, id:number, member:Member};
+type Transaction = {id:number, total:number, totaldisc:number, customer:Customer};
+
+const product:Product = {
+    name:"Mechanical Keyboard RGB",
+    id: "KBR-001",
+    price: 850000,
+    quantity: 2,
+    discount: 25,
+    freeShipping:false
+};
+
+const cust:Customer = {
+    name: "Maven",
+    id:1,
+    member:Member.Premium
+}
+
+product.freeShipping = (cust.member == Member.Premium) ? true : false;
+const products = [product];
+
+console.info(`============= Product Info =============`);
+console.info(product);
+
+console.info(`============= Customer Info =============`);
+console.info(cust);
+
+const transaction:Transaction = {
+    id:1,
+    total:0,
+    totaldisc:0,
+    customer:cust
+}
+
+for (let i=0;i<products.length;i++) {
+    transaction.total+=products[i].price*products[i].quantity;
+}
+
+console.info(`
+============= Transaction Info =============
+Transaction ID: ${transaction.id}
+Customer: ${transaction.customer.name}
+Total: ${transaction.total}
+Total with Discount: ${transaction.total*(1-product.discount/100)}
+`)

@@ -21,3 +21,21 @@
  * 2. Store the temperature data in a single collection.
  * 3. Display the temperature data using console.log.
  */
+
+
+const temps = [24.5,25.1,26.8,28.4,30.2,31.1,30.7,29.3];
+let lowest=0,highest=0,average,total=0;
+
+for (let i = 0; i < temps.length; i++) {
+    lowest = (lowest == 0 || temps[i] < lowest)?temps[i]:lowest;
+    highest = (highest == 0 || temps[i] > highest)?temps[i]:highest;
+    total+=temps[i];
+}
+
+average = total/temps.length;
+
+console.info(`
+====== Temperature Data ======
+Lowest: ${lowest}
+Highest: ${highest}
+Average: ${average}`);
