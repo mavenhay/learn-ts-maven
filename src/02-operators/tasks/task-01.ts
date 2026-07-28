@@ -31,6 +31,6 @@ console.info(`
 Total Food Price: ${pay.food}
 Total Drink Price: ${pay.drink}
 Subtotal: ${pay.totalBefore}
-Discount: ${pay.discount}
+Discount: ${pay.discount}%
 Final Total: ${pay.finalTotal}
     `)

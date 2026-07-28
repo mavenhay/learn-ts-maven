@@ -19,7 +19,20 @@
 
 type Product = {id:string, name:string, price:number, quantity:number, freeShipping:boolean};
 
-const products:Product[] = []
+const products:Product[] = [
+    {id:"KB001", name:"Mechanical Keyboard", price:850000, quantity:1, freeShipping:true},
+    {id:"MS002", name:"Wireless Mouse", price:275000, quantity:2, freeShipping:true},
+    {id:"HD003", name:"External SSD 1TB", price:1650000, quantity:1, freeShipping:false},
+    {id:"HP004", name:"Gaming Headset", price:720000, quantity:1, freeShipping:true}
+];
 
-let test = 0;
-test += (true)?30000:1000;
+products.forEach(item => {
+    console.info(`
+========== Item ${item.id} Information ==========
+Product Code: ${item.id} 
+Product Name: ${item.name} 
+Price: ${item.price}
+Quantity: ${item.quantity}
+Payment Status: ${item.freeShipping?"Yes":"No"}
+`);
+});
