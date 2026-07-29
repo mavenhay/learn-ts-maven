@@ -32,3 +32,5 @@ console.log("daysInMonth(4):", daysInMonth(4)); // expected: 30
 console.log('checkSign(5):', checkSign(5)); // expected: "positive"
 console.log('checkSign(-3):', checkSign(-3)); // expected: "negative"
 console.log('checkSign(0):', checkSign(0)); // expected: "zero"
+
+
