@@ -33,3 +33,14 @@
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
  */
+
+type Student = {name:string, gpa:number, familyIncome:number, competitionCount:number, hasDisciplinaryRecord:boolean, isDocumentsComplete:boolean};
+
+const student1:Student = {
+    name:"Alya Putri",
+    gpa:3.89,
+    familyIncome:4200000,
+    competitionCount:4,
+    hasDisciplinaryRecord:false,
+    isDocumentsComplete:true
+}

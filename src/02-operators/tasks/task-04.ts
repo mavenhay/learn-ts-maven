@@ -22,3 +22,7 @@
  *  - Calculate the final payment.
 
  */
+
+const priceNQuantity:number[][]= [[1],[2]];
+const products:string[] = ["Mechanical Keyboard", "Wireless Mouse", "Mouse Pad"];
+let subtotal=0,finalPayment,discount
