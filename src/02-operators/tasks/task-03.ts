@@ -24,6 +24,8 @@ overtimePay = overtimeRate*overtimeHours;
 bonus = overtimeHours > 10 ? 300000:0;
 finalSalary = overtimePay+overtimePay+bonus
 
+
+
 console.log(`
 ===== Employee Information =====
 Employee Name: Dimas

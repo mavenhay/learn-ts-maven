@@ -23,6 +23,7 @@
 
  */
 
-const priceNQuantity:number[][]= [[1],[2]];
+const priceNQuantity:number[]= [1,2,1];
 const products:string[] = ["Mechanical Keyboard", "Wireless Mouse", "Mouse Pad"];
 let subtotal=0,finalPayment,discount
+

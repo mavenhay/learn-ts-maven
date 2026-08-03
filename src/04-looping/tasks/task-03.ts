@@ -23,3 +23,21 @@
  * - Number of passing students
  * - Number of failing students
  */
+
+const scores = [82, 75, 91, 64, 88, 73, 95, 80, 69, 77, 84, 92, 58, 79, 86, 71, 90, 67, 83, 76];
+let total=0, avg, pass=0, fail=0;
+
+scores.forEach(score => {
+    total+=score;
+    if(score>=75) pass++; else fail++;
+});
+
+avg = total/scores.length;
+
+console.log(`
+===== Calculation =====
+Total Score: ${total}
+Average Score: ${avg}
+Number of Passing Students: ${pass}
+Number of Failing Students: ${fail} 
+`);

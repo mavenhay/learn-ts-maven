@@ -22,3 +22,10 @@
  *  - Display every parking location.
  *  - Print a blank line after each floor.
  */
+
+for(let i=1;i<=5;i++){
+    for(let k=1;k<=20;k++) {
+        console.log(`Floor ${i} - Slot ${k}`);
+    }
+    console.log();
+}
