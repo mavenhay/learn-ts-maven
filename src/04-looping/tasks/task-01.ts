@@ -16,8 +16,6 @@
 
  */
 
-for(let i=1;i<=30;i++) {
-    console.log("Checkig attendance for Student #"+i);
-}
+for(let i=1;i<=30;i++) console.log("Checkig attendance for Student #"+i);
 
 console.log("Attendance verification completed.")

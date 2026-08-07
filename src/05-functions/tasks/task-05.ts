@@ -21,11 +21,11 @@ function findHighestScore(scores: number[]): number {
 }
 
 function findLowestScore(scores: number[]): number {
-
+    return function() {}
 }
 
 function calculateAverage(scores: number[]): number {
-    
+    return scores.reduce((t, n)=> t+n,0)/scores.length;
 }
 
 function countPassedStudents(scores: number[]): number {

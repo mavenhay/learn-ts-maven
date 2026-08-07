@@ -39,18 +39,18 @@ const students = [
   }
 ];
 
-function countActiveStudents(...){
+// function countActiveStudents(...){
 
-}
+// }
 
-function countInactiveStudents(...){
+// function countInactiveStudents(...){
 
-}
+// }
 
-function countStudentsByMajor(...){
+// function countStudentsByMajor(...){
 
-}
+// }
 
-function printEnrollmentReport(...){
+// function printEnrollmentReport(...){
     
-}
+// }

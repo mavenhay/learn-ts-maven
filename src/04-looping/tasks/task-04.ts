@@ -30,7 +30,7 @@ let total=0,highest=0,lowest=0,pinjam300=0,avg:number;
 sales.forEach( sale => {
     total+=sale;
     highest=(sale>highest)?sale:highest;
-    lowest=(sale<lowest || lowest==0)?sale:lowest;
+    lowest=(sale<lowest || !lowest)?sale:lowest;
     if(sale>=300000)pinjam300++;
 });
 

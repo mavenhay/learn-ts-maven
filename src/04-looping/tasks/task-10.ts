@@ -25,3 +25,28 @@ const submissions = [
     { student: "Gita", submitted: true, score: 90 },
     { student: "Hana", submitted: true, score: 73 }
 ];
+
+let passed=0, unpassed=0, submit=0, unsubmit=0;
+
+console.log("!!! NOT SUBMITTED & MUST REVISE !!!");
+submissions.forEach(i =>{
+    if (!i.submitted) {
+        console.log(`${i.student} - Not Submitted`); 
+        unsubmit++;
+    } else {
+        submit++;
+        if (i.score<75) { 
+            console.log(`${i.student} - Must Revise`);
+            unpassed++;
+        } else passed++;
+    }
+});
+
+console.log()
+console.log(`
+===== Submission Summary =====
+Submitted: ${submit}
+Passed: ${passed}
+Not Submitted: ${unsubmit}
+Must Revise: ${unpassed}
+`);
