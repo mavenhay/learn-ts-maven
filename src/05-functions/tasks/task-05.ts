@@ -16,18 +16,27 @@
  * 4. Create function to return number of passing students.
  */
 
-function findHighestScore(scores: number[]): number {
-
+function calc(nums: number[]):number {
+    return nums.reduce((t,n,i)=>t+n,0);
 }
 
+function findHighestScore(scores: number[]): number {
+    return scores.sort()[scores.length-1];
+}
 function findLowestScore(scores: number[]): number {
-    return function() {}
+    return scores.sort()[0];
 }
 
 function calculateAverage(scores: number[]): number {
-    return scores.reduce((t, n)=> t+n,0)/scores.length;
+    return calc(scores)/scores.length;
 }
 
 function countPassedStudents(scores: number[]): number {
-
+    return scores.reduce((t,n,i)=>(scores[i]>=75)?t+1:t,0);
 }
+const thetable:number[] = [90,86,12,67,92];
+
+console.log(countPassedStudents(thetable));
+console.log(findLowestScore(thetable));
+console.log(findHighestScore(thetable));
+console.log(calculateAverage(thetable));

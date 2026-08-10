@@ -18,3 +18,10 @@ const stocks = [
     9, 0, 55, 13, 2,
     30, 8, 41, 0, 16
 ];
+let sadasd:string = "";
+
+sadasd+="asda";
+sadasd+="asdassadaf"
+console.log("SLAD",stocks.join(" "));
+console.log(sadasd)
+let stocksName : string[][]= [["safe","safe"],["low","low"],["habis","habis"]];
