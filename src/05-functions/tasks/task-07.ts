@@ -46,7 +46,7 @@ function countActiveStudents(students:Student[]):number{
 }
 
 function countInactiveStudents(students:Student[]):number{
-  return students.reduce((t,n,i)=>students[i].active?t:t+i,0);
+  return students.reduce((t,n,i)=>students[i].active?t:t+1,0);
 }
 
 function enroll(students:Student[]):[string,Student[]][] {
@@ -72,16 +72,28 @@ function countStudentsByMajor(students:[string,Student[]][]):[string,number][]{
   return b;
 }
 
-function printEnrollmentReport(enrollment:[string,Student[]][]):void{
-  enrollment.forEach(e=>{
-    console.log(`${e[0]} Major:`);
+function printEnrollment(enrollment:[string,Student[]][]):void{
+  enrollment.forEach((e,id)=>{
+    console.log(`${e[0]} Major Students:`);
     e[1].forEach(i=>{
       console.log(`- ${i.name}`);
     });
     console.log();
   });
 }
-
 let asd = enroll(students);
+function printReport():void {
+  console.log("===== Enrollment Report =====");
 
-printEnrollmentReport(asd);
+  console.log(`
+Total Students: ${students.length}
+Active Students: ${countActiveStudents(students)}
+Inactive Students: ${countInactiveStudents(students)}
+
+  `);
+  printEnrollment(asd);
+}
+
+
+
+printReport()
