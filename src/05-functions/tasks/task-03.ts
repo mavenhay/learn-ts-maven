@@ -18,3 +18,9 @@ const prices = [
     420000,
     125000
 ];
+
+function calculateTotalPrice(arr:number[]) {
+    return arr.reduce((t,n)=>t+n,0);
+}
+
+console.log("Total Price:",calculateTotalPrice(prices));

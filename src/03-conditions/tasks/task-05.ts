@@ -32,3 +32,18 @@
  *  - Implement the second screening only if the first screening is passed.
  *  - Display the correct result.
  */
+let name="Fajar Hidayat", gpa=3.86, income=4200000, ccount=4, disciplinary=false,dcomplete=true,passMsg:string;
+
+if(gpa>=3.75&&income<5000000) passMsg=ccount>=3&&!disciplinary&&dcomplete?"Scholarship Approved":"Passed First Screening, but Failed Second Screening";
+else passMsg="Scholarship Not Approved";
+
+console.log(`
+===== Scholarship Result =====
+Student Name: ${name}
+GPA: ${gpa}
+Family Income: ${income}
+Competition Count: ${ccount}
+Has Disciplinary Record? ${disciplinary?"Yes":"No"}
+Documents Complete? ${dcomplete}
+Result: ${passMsg}
+`);

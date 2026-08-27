@@ -21,3 +21,12 @@
  * 3. Display the bonus result inside the function.
  * 4. Call the function for every employee.
  */
+interface Employee {name:string, score:number};
+let employees:Employee[] = [{name:"John Cena", score:92}, {name:"Undertaker", score:76}, {name:"Rey Mysterio", score:88}];
+function showBonusStatus(emp:Employee):void {
+    console.log(`${emp.name} (${emp.score}): ${emp.score>=85?"Bonus Apporved":"Bonus Not Approved"}`);
+}
+console.log(`===== Employees' Bonus Status =====`);
+employees.forEach(e=>{
+    showBonusStatus(e);
+});

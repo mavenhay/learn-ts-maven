@@ -24,3 +24,19 @@
  * 5. Display every student's final grade.
 
  */
+
+function calculateFinalGrade(assignment:number, midterm:number, final:number):number {
+    return (assignment*0.3)+(midterm*0.3)+(final*0.4)
+}
+interface Student {name:string, a:number, m:number, f:number};
+
+const students:Student[] = [
+    {name:"Alya",a:85,m:80,f:92},
+    {name:"Budi",a:78,m:75,f:81},
+    {name:"Citra",a:90,m:88,f:95},
+];
+
+console.log(`===== Students' Final Grade =====`);
+students.forEach(s=>{
+    console.log(`${s.name}: ${calculateFinalGrade(s.a,s.m,s.f)}`);
+});

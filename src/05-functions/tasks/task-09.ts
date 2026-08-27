@@ -21,7 +21,8 @@
  * - printHospitalReport() must only display results.
  * - No duplicated calculations.
  */
-const patients = [
+interface Patient {id:string, name:string, age:number, department:string, admitted:boolean, bill:number};
+const patients:Patient[] = [
     {
         id: "PT001",
         name: "Alya",
@@ -63,3 +64,45 @@ const patients = [
         bill: 350000
     }
 ];
+
+function countTotalPatient(arr:Patient[]=patients):number {return arr.length};
+function countTotalAdmitted(arr:Patient[]=patients):number {
+    return arr.reduce((t,n)=>n.admitted?t+1:t,0);
+}
+function countTotalDischarged(arr:Patient[]=patients):number {
+    return arr.reduce((t,n)=>!n.admitted?t+1:t,0);
+}
+function countPatientEachDepartment(arr:Patient[]=patients):[string[],number[]] {
+    let a:[string[],number[]] = [[],[]]; 
+    arr.forEach((s,i)=>{
+        if (a[0].includes(s.department)) a[0].push(s.department);
+        a[1][a[0].indexOf(s.department)]++;
+    });
+    return a;
+}
+function findHighestBill(arr:Patient[]=patients):number {
+    return arr.sort()[0].bill;
+}
+function findLowestBill(arr:Patient[]=patients):number {
+    return arr.sort()[arr.length-1].bill;
+}
+function calcRevenue(arr:Patient[]=patients):number {
+    return arr.reduce((t,n)=>t+n.bill,0)
+}
+function calcBillAverage(arr:Patient[]=patients):number {
+    return calcRevenue(arr)/arr.length
+}
+function admittedPatients(arr:Patient[]=patients):Patient[] {
+    let a:Patient[] = [];
+    arr.forEach(p=>{if(p.admitted) a.push(p)})
+    return a
+}
+function printHospitalReport():void {
+    console.log(`===== Hospital Report =====
+Total Patients: ${countTotalPatient()}
+Total Aditted Patients: ${countTotalAdmitted()}
+Total Discharged Patients: ${countTotalDischarged()}
+
+    `);
+}
+printHospitalReport()

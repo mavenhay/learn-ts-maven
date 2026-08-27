@@ -18,3 +18,13 @@ const attendances = [
   { name: "Gita", present: true },
   { name: "Hana", present: false }
 ];
+let present=0,absent:string[]=[];
+attendances.forEach(s=>{
+  if (s.present) present++;
+  else absent.push(s.name);
+});
+console.log(`
+===== Attendance Report =====
+Present Students: ${present}
+Absent Students (${absent.length}):`);
+for(const a in absent) console.log(` - ${a}`);

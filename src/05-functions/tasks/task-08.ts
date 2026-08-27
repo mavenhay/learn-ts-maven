@@ -22,7 +22,9 @@
  * - 1 void function to display the report.
  * 
  */
-const submissions = [
+interface Student {student:string,submitted:boolean,score:number};
+
+const submissions:Student[] = [
     {
         student: "Alya",
         submitted: true,
@@ -54,3 +56,67 @@ const submissions = [
         score: 96
     }
 ];
+
+function totalStudents(arr:Student[]):number {
+    return arr.length;
+}
+
+function countSubmitted(arr:Student[]):number {
+    return arr.reduce((t,n)=>n.submitted?t+1:t,0);
+}
+
+function countMissing(arr:Student[]):number {
+    return arr.reduce((t,n)=>n.submitted?t:t+1,0);
+}
+
+function countPassed(arr:Student[]):Student[] {
+    const a:Student[] = [];
+    arr.reduce((t,n)=>n.score>=75?a.push(n):t,0);
+    return a;
+}
+function countRevise(arr:Student[]):Student[] {
+    const a:Student[] = [];
+    arr.reduce((t,n)=>n.score<75?a.push(n):t,0);
+    return a;
+}
+
+function countAvg(arr:Student[]):number {
+    return arr.reduce((t,n)=>t+n.score,0)/arr.length;
+}
+
+function findHighest(arr:Student[]):number {
+    const a:number[] = [];
+    arr.forEach(s=>{a.push(s.score)});
+    return a.sort()[a.length-1];
+}
+
+function findLowest(arr:Student[]):number {
+    const a:number[] = [];
+    arr.forEach(s=>{a.push(s.score)});
+    return a.sort()[0];
+}
+
+function printReport():void {
+console.log(`
+===== Submission Report =====
+Total Students: ${totalStudents(submissions)}
+Submitted Assignments: ${countSubmitted(submissions)}
+Missing Assignments: ${countMissing(submissions)}
+
+Passed Students (${countPassed(submissions).length}):`);
+countPassed(submissions).forEach(s =>{
+    console.log(`   - ${s.student}`);
+});
+console.log(`
+Must Revise Students (${countRevise(submissions).length}):`);
+countRevise(submissions).forEach(s =>{
+    console.log(`   - ${s.student}`);
+});
+console.log(`
+Average Score: ${countAvg(submissions)}
+Highest Score: ${findHighest(submissions)}
+Lowest Score: ${findLowest(submissions)}
+`);
+}
+
+printReport();

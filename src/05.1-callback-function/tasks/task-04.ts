@@ -20,3 +20,12 @@ const scores = [92, 68, 84, 73, 95, 61, 88];
  * 
  * Instead of creating four separate loops, create a reusable function that receives a callback responsible for transforming a score.
  */
+function a():number {
+    return 0;
+}
+
+function convert(arr:number[], call: (sc:number)=>void) {
+    arr.forEach(s=>{
+        call(s)
+    });
+}

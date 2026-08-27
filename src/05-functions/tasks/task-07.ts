@@ -53,21 +53,28 @@ function enroll(students:Student[]):[string,Student[]][] {
   let a:string[] = [], b:[string,Student[]][] = [];
   students.forEach(s=>{
     if (!a.includes(s.major)){
-      a[a.length] = s.major;
-      b[b.length] = [s.major,[]];
+      a.push(s.major);
+      b.push([s.major,[]]);
     }
     // console.log(a,b)
     let temp = b[a.indexOf(s.major)][1];
-    temp[temp.length] = s;
+    temp.push(s);
   });
   return b;
 }
-
+// function checkClass(sts:Student[],maj:string) {
+//   console.log(`${maj} Students:`);
+//   sts.forEach(s=> {if(s.major==maj)console.log(` - ${s.name}`)});
+// }
+// function countsad(sts:Student[],maj:string):number {
+//   let a =0;
+//   sts.forEach(s=> {if(s.major==maj)a++});
+//   return a;
+// }
 function countStudentsByMajor(students:[string,Student[]][]):[string,number][]{
   let b:[string,number][]=[];
   students.forEach(s => {
-    b[b.length][0] = s[0];
-    b[b.length][1] = s[1].reduce((t)=>t+1,0);
+    b.push([s[0],s[1].reduce((t)=>t+1,0)]);
   });
   return b;
 }
@@ -84,16 +91,15 @@ function printEnrollment(enrollment:[string,Student[]][]):void{
 let asd = enroll(students);
 function printReport():void {
   console.log("===== Enrollment Report =====");
-
   console.log(`
 Total Students: ${students.length}
 Active Students: ${countActiveStudents(students)}
 Inactive Students: ${countInactiveStudents(students)}
-
   `);
   printEnrollment(asd);
+  // checkClass(students,"Software Engineering");
+  // checkClass(students,"Networking");
+  // checkClass(students,"Multimedia");
 }
-
-
 
 printReport()

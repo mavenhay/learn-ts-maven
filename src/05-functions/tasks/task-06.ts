@@ -35,3 +35,8 @@ function countLargeTransactions(sales: number[], minimumAmount: number): number 
   return sales.reduce((t,n,i)=>(sales[i]>=minimumAmount)?t+1:t,0);
 }
 
+console.log(calculateAverageSale(sales));
+console.log(findLowestTransaction(sales));
+console.log(findHighestTransaction(sales));
+console.log(calculateAverageSale(sales));
+console.log(countLargeTransactions(sales, 200000));

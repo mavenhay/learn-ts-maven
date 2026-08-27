@@ -22,3 +22,13 @@
  * 2. Implement the logic using nested if statements.
  * 3. Display the reservation result.
  */
+let name="Nadia Putri", isPremium=true, isRoom=false, res;
+res = isRoom? isPremium? "Receive A Room and The Upgrade" : "Receive A Room": isPremium? "Placed on Priority Waiting List" : "No Rooms Are Available";
+
+console.log(`
+===== Reservation Result =====
+Customer Name: ${name}
+Premium Member? ${isPremium}
+Room Available? ${isRoom}
+Result: ${res}
+`);

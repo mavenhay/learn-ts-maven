@@ -1,3 +1,5 @@
+import { read } from "node:fs";
+
 /**
  * The warehouse checks customer orders before shipping based on array below.
  * 
@@ -21,3 +23,16 @@ const orders = [
   { id: "ORD005", paid: false, stockAvailable: false },
   { id: "ORD006", paid: true, stockAvailable: true }
 ];
+let ready:string[]=[],wait=0,unpaid=0;
+
+orders.forEach(o=>{
+  if(o.stockAvailable&&o.paid) ready.push(o.id);
+  if(!o.stockAvailable) wait++;
+  if(!o.paid) unpaid++;
+});
+console.log(`
+===== Order Report =====
+Unpaid: ${unpaid}
+Waiting for Stock: ${wait}
+Ready ${ready.length}:`);
+ready.forEach(a=>console.log(` - ${a}`));

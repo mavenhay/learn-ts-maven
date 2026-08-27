@@ -51,4 +51,4 @@ function processBMI<T>(
 const myResults = processBMI(persons, determineBMI)
 
 console.log(`====== BMI RESULT ======`);
-console.table(myResults)
+console.table(myResults[5])

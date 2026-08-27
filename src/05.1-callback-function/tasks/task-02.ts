@@ -1,3 +1,5 @@
+import { callbackify } from "node:util";
+
 /**
  * Teacher has list of student score:
  */
@@ -29,15 +31,20 @@ function processScores(
     scores: number[],
     callback: (score: number) => void
 ): void {
-    // implementation
+    scores.forEach(n=>{callback(n);});
 }
 
 function printScore(score: number) {
-    // implementation
+    console.info(`Score: ${score}`);
 }
 
 function showGrade(score: number) {
-    // implementation
+    let grade;
+    if(score>=90) grade="A";
+    else if(score>=80) grade="B";
+    else if(score>=70) grade="C";
+    else grade="D";
+    console.info(`Grade: ${grade}`);
 }
 
 

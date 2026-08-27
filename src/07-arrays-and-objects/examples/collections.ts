@@ -6,10 +6,13 @@
 
 // Array methods
 const numbers = [1, 2, 3, 4, 5];
+const n2 = [{name:"AS",num:234}, {name:"SP",num:291}, {name:"fas",num:58}];
+const aaf=4;
 
 console.log("=== Array Methods ===");
 console.log("map (double):", numbers.map((n) => n * 2));
-console.log("filter (even):", numbers.filter((n) => n % 2 === 0));
+console.log("filter (even):", n2.filter((n) => n.num % 2 === 0));
+console.log("0:", !aaf);
 console.log("reduce (sum):", numbers.reduce((sum, n) => sum + n, 0));
 console.log("find (>3):", numbers.find((n) => n > 3));
 console.log("includes(3):", numbers.includes(3));
@@ -23,6 +26,7 @@ console.log({ first, second, rest });
 const arr1 = [1, 2, 3];
 const arr2 = [...arr1, 4, 5];
 console.log("spread array:", arr2);
+
 
 // Object literal
 const book = {
@@ -38,6 +42,7 @@ console.log("\n=== Objects ===");
 console.log(book.getSummary());
 
 // Object destructuring
+
 const { title, author } = book;
 console.log({ title, author });
 

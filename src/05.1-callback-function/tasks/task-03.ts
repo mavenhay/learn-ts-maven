@@ -1,7 +1,8 @@
 /**
  * An online store has the following products:
  */
-const products = [
+interface Product {name:string,price:number}
+const products:Product[] = [
     { name: "Keyboard", price: 850000 },
     { name: "Mouse", price: 275000 },
     { name: "Monitor", price: 2200000 },
@@ -21,3 +22,17 @@ const products = [
  * 
  * Instead of creating a separate loop for every operation, the developer creates a reusable processing function.
  */
+function process(prods:Product[], cb: (prc:Product)=>void):void {
+    prods.forEach(p=>cb(p));
+}
+
+function expensive(p:Product) {
+    if(p.price>1000000)console.log(`Expensive Product: ${p.name}`);
+}
+
+function discount(p:Product) {
+    if (p.price>500000) console.log(`Discount 10%: ${p.price} -> ${p.price*0.9}`);
+}
+
+process(products,expensive);
+process(products,discount);

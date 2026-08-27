@@ -33,8 +33,8 @@
  * - Use meaningful function names and parameters
  * Reuse existing functions whenever possible
  */
-
-const enrollments = [
+interface Student {student:string, course:string, completed:boolean, score:number, duration:number};
+const enrollments:Student[] = [
     {
         student: "Alya",
         course: "TypeScript",
@@ -92,3 +92,86 @@ const enrollments = [
         duration: 20
     }
 ];
+
+function totalEnrollment(arr:Student[]) {
+    return arr.length;
+}
+function countCompletedEnrollment(arr:Student[]) {
+    return arr.filter(t=>t.completed).length;
+}
+function countIncompleteEnrollment(arr:Student[]) {
+    return arr.filter(t=>!t.completed).length;
+}
+function findCompletionPercentage(arr:Student[]) {
+    return (countCompletedEnrollment(arr)/totalEnrollment(arr))*100;
+}
+function avg(arr:number[]) {
+    return arr.reduce((t,n)=>t+n,0)/arr.length;
+}
+function findHighest(arr:number[]) {
+    return arr.sort()[arr.length-1];
+}
+function findLowest(arr:number[]) {
+    return arr.sort()[0];
+}
+function courseAvgScore(arr:Student[]):[string,number][] {
+    let a:[string,number][] = [];
+    arr.forEach(s=>{
+        if(!a.find(n=>n[0]==s.course)){
+            a.push([s.course,avg(arr.filter(n=>n.course==s.course).map(s=>s.score))]);
+        }
+    });
+    return a
+}
+function filterPassStudents(arr:Student[]):string[] {
+    return arr.filter(s=>s.score>=75).map(s=>s.student);
+}
+function countTotalHours(arr:Student[]):number {
+    return arr.reduce((t,n)=>t+n.duration,0);
+}
+function printAvgEachCourse(arr:Student[]):string {
+    let a:string = ``;
+    courseAvgScore(arr).forEach(n=>{
+        a+=`\n - ${n[0]}: ${n[1]}`;
+    });
+    return a
+}
+function dummyFn():void {
+    console.log("WOKWOWKWWOKWKWWOOWKWKW");
+}
+function printPassed(arr:string[]):string {
+    let a:string = ``;
+    arr.forEach(n=>{
+        a+=`\n - ${n}`;
+    });
+    return a
+}
+
+let simpan = filterPassStudents(enrollments)
+function printReport():void {
+    console.log(`
+===== Enrollment Report =====
+
++++ Completion Statistics +++
+Total Enrollments: ${totalEnrollment(enrollments)}
+Completed Enrollments: ${countCompletedEnrollment(enrollments)}
+Incomplete Enrollments: ${countIncompleteEnrollment(enrollments)}
+Completion Percentage: ${findCompletionPercentage(enrollments)}%
+
++++ Academic Statistics +++
+Highest Score: ${findHighest(enrollments.map(s=>s.score))}
+Lowest Score: ${findLowest(enrollments.map(s=>s.score))}
+Average Score: ${avg(enrollments.map(s=>s.score))}
+Students with Passing Scores (${simpan.length}):${printPassed(simpan)}
+
++++ Course Statistics +++
+Total Learning Hours: ${countTotalHours(enrollments)}
+Each Course Average Score:${printAvgEachCourse(enrollments)}
+
++++ Learning Statistics +++
+Total Learning Hours: ${countTotalHours(enrollments)}
+Average Learning Duration: ${avg(enrollments.map(n=>n.duration))}
+`);
+}
+dummyFn()
+printReport()

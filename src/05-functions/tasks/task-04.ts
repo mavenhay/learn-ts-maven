@@ -13,10 +13,27 @@
  * - Display the report inside the function.
  * - The function should not return any value.
  */
-const attendances = [
+type Student = {name:string, present:boolean};
+const attendances:Student[] = [
     { name: "Alya", present: true },
     { name: "Budi", present: false },
     { name: "Citra", present: true },
     { name: "Dimas", present: true },
     { name: "Eka", present: false }
 ];
+
+function printReport(arr:Student[]):void {
+    let a=0,na:string[]=[];
+    arr.forEach(s=>{
+        if(s.present) a++;
+        else na.push(s.name);
+    });
+    console.log(`===== Attendance Report =====
+Total Present: ${a}
+Total Absent: ${na.length}`);
+console.log("Absent Students:")
+na.forEach(s=>{console.log(` - ${s}`);});
+console.log()
+}
+
+printReport(attendances);

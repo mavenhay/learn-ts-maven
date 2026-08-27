@@ -33,16 +33,13 @@
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
  */
-
-type Student = {name:string, gpa:number, familyIncome:number, competitionCount:number, hasDisciplinaryRecord:boolean, isDocumentsComplete:boolean,scholarshipAmount:number};
-
-const scholarshipBudget=500000000,student1:Student = {
-    name:"Alya Putri",
-    gpa:3.89,
-    familyIncome:4200000,
-    competitionCount:4,
-    hasDisciplinaryRecord:false,
-    isDocumentsComplete:true,
-    scholarshipAmount:0
-}
-
+const name="Alya Putri", gpa=3.89, income=4200000, ccount=4, disciplinary=false,dcomplete=true,budget = 500000000;
+const isAccepted = gpa>=3.75 && income<5000000 && ccount>=3 && !disciplinary && dcomplete
+const scammount = isAccepted? 12000000 : 0;
+console.log(`
+===== Acceptance =====
+Initial Scolarship Budget: ${budget}
+Accepted? ${isAccepted}
+Student's Scholarship Ammount: ${scammount}
+Final Scolarship Budget: ${budget-scammount}
+`);
