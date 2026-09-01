@@ -22,3 +22,9 @@ const students = [
   { name: "Deni", score: 74 },
   { name: "Eka", score: 55 },
 ];
+
+let no1 = students.map(s=>s.name), no2=students.filter(s=>s.score>=70),no3=students.find(s=>s.name=="Citra"),no4=students.reduce((t,n)=>t+n.score,0)/students.length;
+console.info(`${no1}`);
+no2.forEach(s=>console.info(`${s.name} : ${s.score}`))
+console.info(`${no3?.name} : ${no3?.score}`)
+console.info(`${no4}`);
