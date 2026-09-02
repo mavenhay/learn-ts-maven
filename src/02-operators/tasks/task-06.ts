@@ -13,3 +13,16 @@
  * - Discount amount
  * - Final payment
  */
+const playtimeMinutes = 35, playtimeHours = 7;
+const playtimeCalc = playtimeHours*60+playtimeMinutes;
+const bill = (playtimeHours+1)*8000
+const remainings = (playtimeHours+1)*60-playtimeCalc;
+const discount = playtimeCalc>=5?bill*0.15:0;
+const final = bill-discount;
+console.log(`===== Payment =====
+Playtime in Minutes: ${playtimeCalc}
+Remaining Minutes: ${remainings}
+Billed Hours: ${playtimeHours+1} Hours
+Subtotal: ${bill}\n${discount?`Discount: ${discount}`:""}
+Final Payment: ${final}
+`);

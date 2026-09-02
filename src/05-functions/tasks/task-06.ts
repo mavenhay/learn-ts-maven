@@ -20,11 +20,11 @@ function calculateTotalSales(sales: number[]): number {
 }
 
 function findHighestTransaction(sales: number[]): number {
-  return sales.sort()[sales.length-1];
+  return sales.sort((a,b)=>b-a)[0];
 }
 
 function findLowestTransaction(sales: number[]): number {
-  return sales.sort()[0];
+  return sales.sort((a,b)=>a-b)[0];
 }
 
 function calculateAverageSale(sales: number[]): number {

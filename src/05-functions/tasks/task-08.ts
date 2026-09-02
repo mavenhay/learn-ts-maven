@@ -87,13 +87,13 @@ function countAvg(arr:Student[]):number {
 function findHighest(arr:Student[]):number {
     const a:number[] = [];
     arr.forEach(s=>{a.push(s.score)});
-    return a.sort()[a.length-1];
+    return a.sort((a,b)=>b-a)[0];
 }
 
 function findLowest(arr:Student[]):number {
     const a:number[] = [];
     arr.forEach(s=>{a.push(s.score)});
-    return a.sort()[0];
+    return a.sort((a,b)=>a-b)[0];
 }
 
 function printReport():void {

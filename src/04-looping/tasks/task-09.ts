@@ -26,3 +26,21 @@ const students = [
     { name: "Gita", score: 92 },
     { name: "Hana", score: 67 }
 ];
+let g:number[] = [0,0,0,0];
+students.forEach(s=>{
+    if (s.score>=90) g[0]++;
+    else if (s.score>=80) g[1]++;
+    else if (s.score>=70) g[2]++;
+    else g[3]++;
+});
+
+
+console.log(`===== Final Grades Report =====
+A: ${g[0]}
+B: ${g[1]}
+C: ${g[2]}
+D: ${g[3]}
+Highest Score: ${students.sort((a,b)=>b.score-a.score)[0]}
+Lowest Score: ${students.sort((a,b)=>a.score-b.score)[0]}
+Average Score: ${students.reduce((t,n)=>t+n.score,0)}
+`);

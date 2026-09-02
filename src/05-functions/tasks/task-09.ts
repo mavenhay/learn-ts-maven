@@ -75,16 +75,19 @@ function countTotalDischarged(arr:Patient[]=patients):number {
 function countPatientEachDepartment(arr:Patient[]=patients):[string[],number[]] {
     let a:[string[],number[]] = [[],[]]; 
     arr.forEach((s,i)=>{
-        if (a[0].includes(s.department)) a[0].push(s.department);
+        if (!a[0].includes(s.department)) {
+            a[0].push(s.department);
+            a[1][a[0].indexOf(s.department)]=0;
+        }
         a[1][a[0].indexOf(s.department)]++;
     });
     return a;
 }
 function findHighestBill(arr:Patient[]=patients):number {
-    return arr.sort()[0].bill;
+    return arr.sort((a,b)=>b.bill-a.bill)[0].bill;
 }
 function findLowestBill(arr:Patient[]=patients):number {
-    return arr.sort()[arr.length-1].bill;
+    return arr.sort((a,b)=>a.bill-b.bill)[0].bill;
 }
 function calcRevenue(arr:Patient[]=patients):number {
     return arr.reduce((t,n)=>t+n.bill,0)
@@ -102,7 +105,16 @@ function printHospitalReport():void {
 Total Patients: ${countTotalPatient()}
 Total Aditted Patients: ${countTotalAdmitted()}
 Total Discharged Patients: ${countTotalDischarged()}
-
-    `);
+Patient Each Department:`);
+let asd = countPatientEachDepartment();
+for (let i = 0; i < asd[0].length; i++) {
+    console.log(` - ${asd[0][i]}: ${asd[1][i]}`);
+}
+console.log(`Highest Hospital Bill: ${findHighestBill()}
+Lowest Hospital Bill: ${findHighestBill()}
+Average Hospotal Bill: ${calcBillAverage()}
+Total Hospital Revenue: ${calcRevenue()}
+Names of Admitted Patients:`);
+admittedPatients().forEach(p=>{console.log(` - ${p.name}`)});
 }
 printHospitalReport()

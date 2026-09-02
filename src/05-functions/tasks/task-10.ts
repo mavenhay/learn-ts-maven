@@ -109,10 +109,10 @@ function avg(arr:number[]) {
     return arr.reduce((t,n)=>t+n,0)/arr.length;
 }
 function findHighest(arr:number[]) {
-    return arr.sort()[arr.length-1];
+    return arr.sort((a,b)=>b-a)[0];
 }
 function findLowest(arr:number[]) {
-    return arr.sort()[0];
+    return arr.sort((a,b)=>b-a)[0];
 }
 function courseAvgScore(arr:Student[]):[string,number][] {
     let a:[string,number][] = [];

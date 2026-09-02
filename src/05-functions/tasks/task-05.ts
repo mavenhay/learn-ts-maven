@@ -21,10 +21,10 @@ function calc(nums: number[]):number {
 }
 
 function findHighestScore(scores: number[]): number {
-    return scores.sort()[scores.length-1];
+    return scores.sort((a,b)=>b-a)[0];
 }
 function findLowestScore(scores: number[]): number {
-    return scores.sort()[0];
+    return scores.sort((a,b)=>a-b)[0];
 }
 
 function calculateAverage(scores: number[]): number {
