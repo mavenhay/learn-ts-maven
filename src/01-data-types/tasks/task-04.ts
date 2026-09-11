@@ -10,11 +10,11 @@
  * 
  * display the book data using console.log.
  */
-enum Category {
-    CScience = "Computer Science",
-    Math = "Mathematics",
-    Novel = "Novel"
-}
+type Category =
+    "Computer Science"|
+    "Mathematics"|
+    "Novel";
+
 
 type Book = {isbn:number, title:string, author:string, pages:number, category:Category, available:boolean};
 
@@ -23,7 +23,7 @@ const book1:Book = {
     title:"Learn AI",
     author:"Maven",
     pages:136,
-    category:Category.CScience,
+    category:"Computer Science",
     available:true
 }
 
@@ -32,7 +32,7 @@ const book2:Book = {
     title:"Advanced Mathematics",
     author:"Maven",
     pages:239,
-    category:Category.Math,
+    category:"Mathematics",
     available:true
 }
 
@@ -41,7 +41,7 @@ const book3:Book = {
     title:"Learn TypeScript",
     author:"Maven",
     pages:127,
-    category:Category.CScience,
+    category:"Computer Science",
     available:false
 }
 

@@ -10,8 +10,8 @@
  * 3. Calculate final subtotal after given discount
  * 4. Find expensive product ( > 1.000.000)
  */
-
-const cart = [
+type Product = {product:string, price:number, quantity:number}
+const cart:Product[] = [
     {
         product: "Keyboard",
         price: 350000,
@@ -28,3 +28,9 @@ const cart = [
         quantity: 1,
     },
 ];
+let total = cart.reduce((t,n)=>t+n.price,0)
+console.log(`===== Calculation =====
+Subtotal: ${total}
+Final Total: ${total>=3000000?total*0.90:total>=2000000?total*0.95:total}
+Expensive Products:`);
+cart.filter((a)=>a.price>1000000).forEach((v)=>console.log(`- ${v.product}`))

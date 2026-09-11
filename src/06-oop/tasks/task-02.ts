@@ -38,3 +38,29 @@
  * - Amount must be greater than 0.
  * - Amount cannot exceed the current balance.
  */
+
+class DigitalWallet {
+    constructor(private walletId:string, private owner:string, private balance:number){};
+    deposit(amount:number) {
+        if (amount>0)this.balance+=amount;
+    }
+    withdraw(amount:number) {
+        if (amount>0&&this.balance-amount>=0)this.balance-=amount;
+    }
+    getBalance() {
+        return this.balance;
+    }
+    showWalletInfo() {
+        console.log(`===== Wallet Info =====
+Wallet ID: ${this.walletId}
+Owner: ${this.owner}
+Balance: ${this.balance}
+`);
+    }
+}
+
+const userA = new DigitalWallet("WAL001", "Harry Maguire", 500000);
+userA.deposit(1000);
+console.log(`Balance:`,userA.getBalance())
+userA.withdraw(20000)
+userA.showWalletInfo()

@@ -28,14 +28,14 @@
  * Then create at least three student objects.
  */
 class Student {
-    private studentId:string;
-    private name:string;
-    private age:number;
-    private major:string;
-    private grade:number;
+    public studentId:string
+    public name:string
+    private age:number
+    public major:string
+    public grade:number
 
-    constructor(id:string, name:string, age:number, major:string, grade:number) {
-        this.studentId = id
+    constructor(studentId:string , name:string, age:number, major:string, grade:number) {
+        this.studentId = studentId;
         this.name = name;
         this.age = age;
         this.major = major;
@@ -54,4 +54,9 @@ Grade: ${this.grade}
 }
 
 const student1 = new Student("ST001", "Lionel Messi", 17, "Software Engineering", 11);
+const student2 = new Student("ST002", "Atha", 17, "Software Engineering", 1);
+const student3 = new Student("ST003", "Putra", 17, "Software Engineering", 99);
+
 student1.showProfile()
+student2.showProfile()
+student3.showProfile()

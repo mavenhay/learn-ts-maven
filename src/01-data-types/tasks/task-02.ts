@@ -15,11 +15,8 @@
  * 5. Display the product data using console.log.
 **/
 type Product = {name:string, id:string, price:number, quantity:number, discount:number, freeShipping:boolean};
-enum Member {
-    Premium = "Premium",
-    Regular = "Regular",
-    None = "No Member"
-}
+type Member = "Premium"|"Regular"|"No Member";
+
 type Customer = {name:string, id:number, member:Member};
 type Transaction = {id:number, total:number, totaldisc:number, customer:Customer};
 
@@ -35,10 +32,10 @@ const product:Product = {
 const cust:Customer = {
     name: "Maven",
     id:1,
-    member:Member.Premium
+    member:"Premium"
 }
 
-product.freeShipping = (cust.member == Member.Premium) ? true : false;
+product.freeShipping = (cust.member == "Premium") ? true : false;
 const products = [product];
 
 console.info(`============= Product Info =============`);

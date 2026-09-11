@@ -1,4 +1,4 @@
-import { read } from "node:fs";
+
 
 /**
  * The warehouse checks customer orders before shipping based on array below.

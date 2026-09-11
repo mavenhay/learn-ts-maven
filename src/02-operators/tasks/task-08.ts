@@ -1,3 +1,4 @@
+
 /**
  * A smart home monitors electricity usage every day.
  * Today's information:
@@ -24,3 +25,16 @@
  * - Final bill
  * - Green Energy Program eligibility
  */
+let prev = 25640, cur=25892, price=1650, solar=true, saving=false;
+let consume = cur-prev;
+let bill = consume*1650;
+let disc = solar?bill*0.2:0;
+let disc2 = saving?bill*0.05:0;
+let finalBill= bill -disc-disc2;
+let elligible = solar&&consume<300&&saving?"Elligible":"Not Elligible"
+console.log(`===== Result =====
+Total Energy Consumption: ${consume} kWh
+Electricity Bill: ${bill}
+Final Bill: ${finalBill}
+Green Energy Program: ${elligible}
+`);

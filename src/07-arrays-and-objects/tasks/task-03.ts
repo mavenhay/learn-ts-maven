@@ -23,3 +23,11 @@ const attendance = [
     { studentId: 3, status: "present" },
     { studentId: 4, status: "late" },
 ];
+let a = (str:string)=>students.filter((s,i)=>attendance[i].status==str).map(s=>s.name);
+console.log(`Present: ${a("present")}`);
+console.log(`Absent: ${a("absent")}`);
+console.log(`Late: ${a("late")}`);
+console.log(`\n{name, status} Array:`)
+students.map((s,i)=>{ return {name:s.name, status:attendance[i].status}}).forEach(s=>{
+    console.log(`${s.name}, ${s.status}`)
+});

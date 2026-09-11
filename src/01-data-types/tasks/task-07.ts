@@ -11,11 +11,11 @@
  * 
  * display the registration data using console.log.
  */
-enum Grade {
-    Beginner = "Beginner",
-    Intermediate = "Intermediate",
-    Advanced = "Advanced"
-}
+type Grade =
+    "Beginner"|
+    "Intermediate"|
+    "Advanced";
+
 
 type Student = {id:number, name:string, level:Grade};
 type Course = {id:string, title:string, instructor:string, totalLearningHours:number};
@@ -27,9 +27,9 @@ const courses:Course[] = [
 ];
 
 const students:Student[] = [
-    {id:20, name:"Maven", level:Grade.Intermediate},
-    {id:7, name:"Popopo", level:Grade.Beginner},
-    {id:92, name:"John", level:Grade.Beginner}
+    {id:20, name:"Maven", level:"Intermediate"},
+    {id:7, name:"Popopo", level:"Beginner"},
+    {id:92, name:"John", level:"Beginner"}
 ];
 
 const registrations:Registration[] = [

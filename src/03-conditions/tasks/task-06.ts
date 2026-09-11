@@ -23,3 +23,15 @@
  * 2. Implement the hospital workflow using conditional statements.
  * 3. Display the patient's destination.
  */
+let name = "Siti Rahma", crit = false, app=true, age=67, ins = true;
+function check() {
+    if (crit) {console.log(`The patient assigned to the Emergency Room.`); return;}
+    if (app) {
+        if(age>=60)console.log(`The patient received Priotiy Queue.`);
+        else console.log(`The patient received Regular Queue.`);
+    } else {
+        if(ins)console.log(`The patient are assigned to the Insurance Registration Counter.`);
+        else console.log(`The patient are assigned to the General Registration Counter.`);
+    }
+}
+check()

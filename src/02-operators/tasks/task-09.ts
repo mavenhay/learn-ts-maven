@@ -1,3 +1,5 @@
+
+
 /**
  * An online marketplace wants to calculate the customer's final payment and reward points after checkout.
  * The customer purchases the following items:
@@ -34,4 +36,23 @@
  * - Free shipping eligibility
 
  */
+let premium = true;
+let subtotal = 850000*1+275000*2+420000*1;
+let disc = premium?0.1*subtotal:0;
+let voucher = 100000;
+let before = subtotal-voucher;
+let tax = 0.11*subtotal
+let final = subtotal+tax;
+let points = final%50000;
+let ship = premium||final>1500000;
 
+
+console.log(`===== Result =====
+Product Subtotal: ${subtotal}
+Membership Discount: ${disc}
+Voucher Deduction: ${voucher}
+Payment Before Tax: ${before}
+VAT: ${tax}
+Final Payment: ${final}
+Reward Points: ${points}
+Free Shipping; ${ship?"Elligible":"Not Elligible"}`);
