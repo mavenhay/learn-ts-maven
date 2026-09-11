@@ -30,3 +30,12 @@
  * 2. Implement both screening stages.
  * 3. Display the loan decision.
  */
+
+let applicant="Andi Wijaya", income=10000000, score=725, debt=2500000, permanent=true, screening:number=0;
+if(income>=8000000&&score>=700) screening++;
+if(0.3*income>debt&&permanent) screening++;
+
+console.log("===== Loan Decision =====")
+if (screening==0) console.log("Loan Rejected");
+else if (screening==1) console.log("Manual Review");
+else console.log("Loan Approved");

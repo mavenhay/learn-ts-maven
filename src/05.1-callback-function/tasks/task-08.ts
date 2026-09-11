@@ -34,7 +34,8 @@ const transactions = [
         status: "cancelled"
     }
 ];
-
+type Category = "HIGH VALUE"|"MEDIUM VALUE"|"LOW VALUE"
+type TrCategory = {id:number, category:Category}
 /** TASKS:
  * - Extract customer's name only in array
  * - Determine Transaction Category with rules below:

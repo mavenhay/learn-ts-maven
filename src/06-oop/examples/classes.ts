@@ -1,8 +1,12 @@
 class Student {
+  public name: string
+  private age: number
   constructor(
-    public name: string,
-    private age: number
+    name: string,
+    age: number
   ) {
+    this.name = name;
+    this.age = age;
   }
 
   public introduce(): void {
@@ -22,8 +26,9 @@ student.introduce(); // ✅ Allowed
 /**                    ENCAPSULATION                    */
 /** =================================================== */
 class BankAccount {
-
-  constructor(private balance: number) {
+  private balance: number
+  constructor(balance:number) {
+    this.balance = balance;
   }
 
   public deposit(amount: number): void {
@@ -53,10 +58,13 @@ console.log(account.getBalance());
 /**                    INHERITANCE                      */
 /** =================================================== */
 class Person {
+  public name: string
+  public age: number
   constructor(
-    public name: string,
-    public age: number
-  ) { }
+    name: string,
+    age: number
+  ) { this.name = name
+    this.age = age}
 
   introduce(): void {
     console.log(`My name is ${this.name}`);
@@ -64,12 +72,14 @@ class Person {
 }
 
 class Instructor extends Person {
+  public grade: number
   constructor(
     name: string,
     age: number,
-    public grade: number
+    grade:number
   ) {
     super(name, age);
+    this.grade = grade
   }
 
   study(): void {

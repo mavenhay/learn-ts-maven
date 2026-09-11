@@ -17,11 +17,7 @@ const subjects: Array<string> = ["Math", "English", "Science"];
 const studentRecord: [string, number] = ["Bob", 22];
 
 // Enum — named constants
-enum Grade {
-  A = "Excellent",
-  B = "Good",
-  C = "Average",
-}
+type Grade = "Excellent"|"Good"|"Average"
 
 // Any — avoid when possible; use when type is truly unknown
 let flexibleValue: any = "hello";
@@ -45,5 +41,5 @@ let notAssigned: undefined = undefined;
 console.log("=== Basic Types ===");
 console.log({ studentName, age, isEnrolled });
 console.log({ scores, subjects });
-console.log({ studentRecord, grade: Grade.A });
+console.log({ studentRecord, grade: "A" });
 logMessage("Data types example completed!");

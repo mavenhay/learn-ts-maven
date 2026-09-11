@@ -20,12 +20,29 @@ const scores = [92, 68, 84, 73, 95, 61, 88];
  * 
  * Instead of creating four separate loops, create a reusable function that receives a callback responsible for transforming a score.
  */
-function a():number {
-    return 0;
+function pass(sc:number):string {
+    let grade = "D";
+    if (sc>=90) grade = "A";
+    else if (sc>=80) grade = "B"; 
+    else if (sc>=70) grade = "C";
+    return grade;
+}
+function bonus(sc:number):number {
+    return sc+5<=100?sc+5:sc;
+}
+function msg(sc:number):string{
+    return sc>90?"Excellent":"Regular";
 }
 
-function convert(arr:number[], call: (sc:number)=>void) {
+function convert<T>(arr:number[], call: (sc:number)=>T):T[] {
+    let a:T[] = [];
     arr.forEach(s=>{
-        call(s)
+        a.push(call(s));
     });
+    return a;
 }
+
+console.log("Passed:",convert(scores, pass));
+console.log("+5 Bonus:",convert(scores, bonus));
+console.log("Message:",convert(scores, msg));
+
