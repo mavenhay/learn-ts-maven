@@ -33,31 +33,47 @@ class Notification {
     }
 
     send() {
-        console.log("Notification Sent:",this.message);
+        console.log("Message:",this.message);
     }
 }
 
 class EmailNotification extends Notification{
+    public recipient:string;
+    constructor(r:string,m:string){
+        super(m);
+        this.recipient = r;
+    }
     send() {
-        console.log("Email Sent:",this.message);
+        console.log("To:",this.recipient)
+        console.log("Email Message:",this.message);
     }
 }
 
 class SmsNotification extends Notification {
+    public recipient:string;
+    constructor(r:string,m:string){
+        super(m);
+        this.recipient = r;
+    }
     send() {
-        console.log("SMS Sent:",this.message);
+        console.log("SMS Message:",this.message);
     }
 }
 
 class PushNotification extends Notification {
+    public device:string;
+    constructor(d:string,m:string){
+        super(m);
+        this.device = d;
+    }
     send() {
-        console.log("Push Notification Sent:",this.message);
+        console.log("Notification Message:",this.message);
     }
 }
 const notifications: Notification[] = [
-    new EmailNotification("Dear Deer"),
-    new SmsNotification("Hello World"),
-    new PushNotification("OI PUSH GITHUB")
+    new EmailNotification("Nathan","Dear Deer"),
+    new SmsNotification("YAHU","Hello World"),
+    new PushNotification("Maven","OI PUSH GITHUB")
 ];
 
 for (const notification of notifications) {
