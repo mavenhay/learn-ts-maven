@@ -26,13 +26,38 @@
  */
 
 class Notification {
+    public message:string;
 
+    constructor(message:string){
+        this.message = message;
+    }
+
+    send() {
+        console.log("Notification Sent:",this.message);
+    }
 }
 
+class EmailNotification extends Notification{
+    send() {
+        console.log("Email Sent:",this.message);
+    }
+}
+
+class SmsNotification extends Notification {
+    send() {
+        console.log("SMS Sent:",this.message);
+    }
+}
+
+class PushNotification extends Notification {
+    send() {
+        console.log("Push Notification Sent:",this.message);
+    }
+}
 const notifications: Notification[] = [
-    emailNotification,
-    smsNotification,
-    pushNotification
+    new EmailNotification("Dear Deer"),
+    new SmsNotification("Hello World"),
+    new PushNotification("OI PUSH GITHUB")
 ];
 
 for (const notification of notifications) {

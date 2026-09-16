@@ -42,6 +42,9 @@ class Student {
         this.grade = grade;
     }
 
+    // bisa pakai yang di bawah ini, hanya saja kalau dijalankan pakai node error
+    // constructor(public studentId:string , public name:string, private age:number, public major:string, public grade:number) {}
+
     showProfile():void {
         console.log(`===== Student Profile =====
 Student ID: ${this.studentId}

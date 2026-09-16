@@ -33,11 +33,50 @@
  * - protect "package weight" in order to another class can't access it directly. Use method "getWeight"
  * for get value of package weight
  */
+class Shipping {
+  public tracking:string;
+  public destination:string;
+  protected weight:number;
+  constructor(t:string,d:string,w:number){
+    this.destination = d;
+    this.tracking = t;
+    this.weight = w;
+  }
+  calculateCost() {
+    return 0;
+  }
+  getWeight() {
+    return this.weight;
+  }
+}
+
+class RegularShipping extends Shipping{
+  calculateCost() {
+    return this.weight * 10000;
+  }
+}
+class ExpressShipping extends Shipping{
+  calculateCost() {
+    return this.weight * 20000;
+  }
+}
+class SameDayShipping extends Shipping{
+  calculateCost() {
+    return this.weight * 30000;
+  }
+}
+class InternationalShipping extends Shipping{
+  calculateCost() {
+    return this.weight * 100000;
+  }
+}
+
 
 const shipments: Shipping[] = [
-  regularShipping,
-  expressShipping,
-  sameDayShipping
+  new RegularShipping("REG001","Malang",3),
+  new ExpressShipping("EXP001","Surabaya",2),
+  new SameDayShipping("SMD001","Jakarta",4),
+  new InternationalShipping("NTY001","Tel Aviv",10),
 ];
 
 for (const shipment of shipments) {
